@@ -1,8 +1,109 @@
+body {
+  background: url("../images/just-waves.png");
+  /* background: url("../images/green_dust_scratch.png"); */
+  /* background: url("../images/light-grey-terrazzo.png"); */
+}
+
 h1 {
-  height: 40px;
+  height: 50px;
   width: 100%;
-  background-color: lightcyan;
-  color: lightcoral;
+  font-size: x-large;
+  background-color: darkorange;
+  color: lightgoldenrodyellow;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+h2 {
+  text-align: center;
+  font-size: larger;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#rules-of-the-game {
+  /* height: 200px;
+  width: 50%; */
+
+  width: 500px;
+  height: 350px;
+  text-align: center;
+  font-size: smaller;
+  line-height: 3;
+  background-color: lightgoldenrodyellow;
+  color: green;
+  border: solid 1px cornflowerblue;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+/* #scoreboard
+#random-num-display
+#win-loss-count
+#crystals
+#your-score-header
+#score-count */
+
+#scoreboard {
+  overflow: auto;
+}
+
+#scoreboard div {
+  float: left;
+  /* background-color: lightskyblue */
+}
+
+#random-num-display {
+  height: 100px;
+  width: 150px;
+  background-color: lightseagreen;
+  color: violet;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+#win-loss-count {
+  height: 100px;
+  width: 75px;
+  padding: 10px;
+  background-color: paleturquoise;
+  color: darkslategray;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#crystals-click {
+  height: 100px;
+  width: 400px;
+  border: solid 1px cornflowerblue;
+  /* display: inline; */
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+#your-score-header {
+  height: 20px;
+  width: 300px;
+  background-color: turquoise;
+  color: purple;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  /* display: inline; */
+}
+
+#score-count {
+  height: 100px;
+  width: 300px;
+  background-color: turquoise;
+  color: white;
+  font-size: xx-large;
+  margin-bottom: 40px;
+  margin-left: 10px;
+  /* display: inline; */
 }
