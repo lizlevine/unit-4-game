@@ -29,6 +29,10 @@ var currentTotal = 0;
 var targetTotal = 0;
 
 // below are FUNCTIONS – first off, code random number generators in plain js - refactor to jQuery triggered by click events
+//  starts and restarts the game;
+var randomNums = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 var beginGame = function() {
   // here we need to reset the game
@@ -36,30 +40,58 @@ var beginGame = function() {
   var currentTotal = 0;
 
   // set a new random number to target btwn 19-120
+  targetTotal = randomNums(19, 120);
 
-  targetTotal = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+  // set values (btwn 1-12) for each gem object within main crystals object using object dot notation
 
-  pink = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-  white = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-  aqua = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-  green = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  crystals.pink.total = randomNums(1, 12);
+  crystals.white.total = randomNums(1, 12);
+  crystals.aqua.total = randomNums(1, 12);
+  crystals.green.total = randomNums(1, 12);
+
+  //    test with alerts;
+
+ 
+  alert("Target Score: " + targetTotal);
+  alert(
+    "pink:  " +
+      crystals.pink.total +
+      " & white: " +
+      crystals.white.total +
+      " & aqua: " +
+      crystals.aqua.total +
+      "green: " +
+      crystals.green.total
+  );
+
+  //   targetTotal = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+
+  //   pink = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  //   white = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  //   aqua = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  //   green = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+
+  // instead of all that redundancy, used instead;
+
   // set a different value for each of the gemstones btwn 1-12
   // update HTML to reflect all changes as game proceeds
 };
 
 // below is code random number generators triggered by click events (this part jQuery)
 
+beginGame();
+
 $("#pink").click(function() {
-  alert("testing");
+  //   alert("testing");
 });
 $("#white").click(function() {
-  alert("testing");
+  //   alert("testing");
 });
 $("#aqua").click(function() {
-  alert("testing");
+  //   alert("testing");
 });
 $("#green").click(function() {
-  alert("testing");
+  //   alert("testing");
 });
 
 // var gameStartRandom = function(min, max) {
@@ -70,73 +102,69 @@ $("#green").click(function() {
 //   currentTotal = 0;
 // };
 
-// targetTotal = gameStartRandom(19, 120);
-
-// set values (btwn 1-12) for each gem object within main crystals object
-
-crystals.pink.value = gameStartRandom(1, 12);
-crystals.white.value = gameStartRandom(1, 12);
-crystals.aqua.value = gameStartRandom(1, 12);
-crystals.green.value = gameStartRandom(1, 12);
+// _________________________________________________________________________________
 
 // update HTML to reflect game status changes ***  in plain js - refactor to jQuery
 
-document.getElementById("wins-total").innerHTML = winsTotal;
-document.getElementById("losses-total").innerHTML = lossesTotal;
+// document.getElementById("wins-total").innerHTML = winsTotal;
+// document.getElementById("losses-total").innerHTML = lossesTotal;
 
 // below is FUNCTION CALL process
 // note, code taken from last weeks exercise #12 in JQ, CrystalExample... borrow this code;
 
-var targetNumber = 53;
+// ________________________________________________________________________________
+// var targetNumber = 53;
 
-$("#number-to-guess").text(targetNumber);
+// $("#number-to-guess").text(targetNumber);
 
-var counter = 0;
+// var counter = 0;
 
 // Now for the hard part. Creating multiple crystals each with their own unique number value.
 
 // We begin by expanding our array to include four options.
-var numberOptions = [10, 5, 3, 7];
+// var numberOptions = [10, 5, 3, 7];
 
 // Next we create a for loop to create crystals for every numberOption.
-for (var i = 0; i < numberOptions.length; i++) {
-  // For each iteration, we will create an imageCrystal
-  var imageCrystal = $("<img>");
+// for (var i = 0; i < numberOptions.length; i++) {
+// For each iteration, we will create an imageCrystal
+//   var imageCrystal = $("<img>");
 
-  // First each crystal will be given the class ".crystal-image".
-  // This will allow the CSS to take effect.
-  imageCrystal.addClass("crystal-image");
+// First each crystal will be given the class ".crystal-image".
+//   // This will allow the CSS to take effect.
+//   imageCrystal.addClass("crystal-image");
 
-  // Each imageCrystal will be given a src link to the crystal image
-  //   imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
+// Each imageCrystal will be given a src link to the crystal image
+//   imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
 
-  // Each imageCrystal will be given a data attribute called data-crystalValue.
-  // This data attribute will be set equal to the array value.
-  imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+// Each imageCrystal will be given a data attribute called data-crystalValue.
+// This data attribute will be set equal to the array value.
+//   imageCrystal.attr("data-crystalvalue", numberOptions[i]);
 
-  // Lastly, each crystal image (with all it classes and attributes) will get added to the page.
-  $("#crystals").append(imageCrystal);
-}
+// Lastly, each crystal image (with all it classes and attributes) will get added to the page.
+//   $("#crystals").append(imageCrystal);
+// }
 
 // This time, our click event applies to every single crystal on the page. Not just one.
-$(".crystal-image").on("click", function() {
-  // Determining the crystal's value requires us to extract the value from the data attribute.
-  // Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
-  // Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
-  // Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
+// $(".crystal-image").on("click", function() {
 
-  var crystalValue = $(this).attr("data-crystalvalue");
-  crystalValue = parseInt(crystalValue);
-  // We then add the crystalValue to the user's "counter" which is a global variable.
-  // Every click, from every crystal adds to the global counter.
-  counter += crystalValue;
+// Determining the crystal's value requires us to extract the value from the data attribute.
+// Using the $(this) keyword specifies that we should be extracting the crystal value of the clicked crystal.
+// Using the .attr("data-crystalvalue") allows us to grab the value out of the "data-crystalvalue" attribute.
+// Since attributes on HTML elements are strings, we must convert it to an integer before adding to the counter
 
-  // All of the same game win-lose logic applies. So the rest remains unchanged.
-  alert("New score: " + counter);
+//   var crystalValue = $(this).attr("data-crystalvalue");
+//   crystalValue = parseInt(crystalValue);
 
-  if (counter === targetNumber) {
-    alert("You win!");
-  } else if (counter >= targetNumber) {
-    alert("You lose!!");
-  }
-});
+// We then add the crystalValue to the user's "counter" which is a global variable.
+// Every click, from every crystal adds to the global counter.
+//   counter += crystalValue;
+
+//   // All of the same game win-lose logic applies. So the rest remains unchanged.
+//   alert("New score: " + counter);
+
+//   if (counter === targetNumber) {
+//     alert("You win!");
+//   } else if (counter >= targetNumber) {
+//     alert("You lose!!");
+//   }
+// });
