@@ -1,25 +1,25 @@
 body {
-  background: url("../images/just-waves.png");
+  /* background: url("../images/just-waves.png"); */
   /* background: url("../images/green_dust_scratch.png"); */
-  /* background: url("../images/light-grey-terrazzo.png"); */
+  background: url("../images/light-grey-terrazzo.png");
 }
 
 h1 {
   height: 50px;
   width: 100%;
-  font-size: x-large;
-  background-color: darkorange;
+  font-size: xx-large;
+  background-color: lightseagreen;
   color: lightgoldenrodyellow;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 17px;
   margin-bottom: 10px;
   margin-left: 10px;
 }
 
 h2 {
   text-align: center;
-  font-size: larger;
-  padding: 10px;
+  font-size: x-large;
+  padding-top: 25px;
   margin-bottom: 10px;
   margin-left: 10px;
 }
@@ -33,9 +33,9 @@ h2 {
   text-align: center;
   font-size: smaller;
   line-height: 3;
-  background-color: lightgoldenrodyellow;
-  color: green;
-  border: solid 1px cornflowerblue;
+  background-color: #eeeeee;
+  color: darkslategray;
+  border: solid 2px lightgrey;
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 10px;
@@ -44,7 +44,7 @@ h2 {
 
 /* #scoreboard
 #random-num-display
-#win-loss-count
+#win-loss-display
 #crystals
 #your-score-header
 #score-count */
@@ -62,12 +62,27 @@ h2 {
   height: 100px;
   width: 150px;
   background-color: lightseagreen;
-  color: violet;
+  color: lightgoldenrodyellow;
+  font-size: x-large;
+  border: solid 1px lightgrey;
   padding: 10px;
   margin-bottom: 10px;
   margin-left: 10px;
 }
-#win-loss-count {
+#win-loss-display {
+  height: 100px;
+  width: 75px;
+  padding: 10px;
+  background-color: lightseagreen;
+  color: lightgoldenrodyellow;
+  border: solid 1px lightgrey;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+/* #wins-total,
+#losses-total {
+
   height: 100px;
   width: 75px;
   padding: 10px;
@@ -75,25 +90,29 @@ h2 {
   color: darkslategray;
   margin-bottom: 10px;
   margin-left: 10px;
-}
 
-#crystals-click {
+} */
+
+img {
   height: 100px;
-  width: 400px;
-  border: solid 1px cornflowerblue;
-  /* display: inline; */
+  width: 100px;
   margin-bottom: 10px;
   margin-left: 10px;
+}
+
+#crystals-display {
+  display: inline;
 }
 
 #your-score-header {
   height: 20px;
   width: 300px;
   background-color: turquoise;
-  color: purple;
+  color: indigo;
   margin-bottom: 10px;
   margin-left: 10px;
   padding: 10px;
+  border: solid 1px lightgrey;
   /* display: inline; */
 }
 
@@ -103,6 +122,10 @@ h2 {
   background-color: turquoise;
   color: white;
   font-size: xx-large;
+  text-align: center;
+  padding-top: 55px;
+  color: indigo;
+  border: solid 1px lightgrey;
   margin-bottom: 40px;
   margin-left: 10px;
   /* display: inline; */

@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>unit-4-game</title>
+
+    <!-- css reset file followed by css -->
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <h1 id="title">CrystalsCollector!</h1>
+    <h1 id=>CrystalsCollector!</h1>
 
     <div id="rules-of-the-game">
       <h2>Rules of the Game:</h2>
@@ -29,16 +31,30 @@
 
     <div id="scoreboard">
       <!-- Random Number box -->
-      <div id="random-num-display"></div>
+      <div id="random-num-display">random number generator</div>
       <!-- Wins/Losses counter box -->
-      <div id="win-loss-count"></div>
+      <div id="win-loss-display">
+        <p>Wins:</p>
+        <p>Losses:</p>
+      </div>
     </div>
     <div>
       <!-- Crystals quad display-->
-      <div id="crystals-click"></div>
-      <div id="your-score-header">Your total score is:</div>
+      <div id="crystals-display"></div>
+      <div id="score-total-display"></div>
+
+      <img src="assets/images/pink-2.jpg" alt="emerald" />
+      <img src="assets/images/diamond-2.jpg" alt="emerald" />
+      <img src="assets/images/aquamarine.jpg" alt="emerald" />
+      <img src="assets/images/emerald.jpg" alt="emerald" />
+
+      <div id="your-score-header">Your total score is: 0</div>
       <!-- Score Display -->
-      <div id="score-count"></div>
+      <div id="score-count">0</div>
     </div>
+
+    <!-- Added link to the jQuery library  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
   </body>
 </html>
