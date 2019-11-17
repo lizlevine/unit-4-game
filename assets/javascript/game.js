@@ -1,25 +1,23 @@
-// Below are initialized global variables
-// treat each of the 4 crystals as objects
-// each of the 4 gems will have a random number generator - which will be triggered with an onclick event listener
+// GLOBAL VARIABLES
 
-// think of each gemstone as an oject with key (-or- property) /value pair within the main crystals object;
+// "Crystals" object with 4 "sub-objects" defined by properties or key/value pairs
 
 var crystals = {
   pink: {
     name: "pink-saphire",
-    value: 0
+    total: 0
   },
   white: {
     name: "diamond",
-    value: 0
+    total: 0
   },
   aqua: {
     name: "aquamarine",
-    value: 0
+    total: 0
   },
   green: {
     name: "emerald",
-    value: 0
+    total: 0
   }
 };
 
@@ -30,34 +28,64 @@ var lossesTotal = 0;
 var currentTotal = 0;
 var targetTotal = 0;
 
-// below are FUNCTIONS
+// below are FUNCTIONS – first off, code random number generators in plain js - refactor to jQuery triggered by click events
 
-// first, random number generators
+var beginGame = function() {
+  // here we need to reset the game
 
-var gameStartRandom = function(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  var currentTotal = 0;
+
+  // set a new random number to target btwn 19-120
+
+  targetTotal = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+
+  pink = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  white = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  aqua = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  green = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+  // set a different value for each of the gemstones btwn 1-12
+  // update HTML to reflect all changes as game proceeds
 };
 
-var gameStart = function() {
-  currentTotal = 0;
-};
+// below is code random number generators triggered by click events (this part jQuery)
 
-targetTotal = gameStartRandom(19, 120);
+$("#pink").click(function() {
+  alert("testing");
+});
+$("#white").click(function() {
+  alert("testing");
+});
+$("#aqua").click(function() {
+  alert("testing");
+});
+$("#green").click(function() {
+  alert("testing");
+});
 
-// set values (btwn 1-12) for each gem in crystals object
+// var gameStartRandom = function(min, max) {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// };
+
+// var gameStart = function() {
+//   currentTotal = 0;
+// };
+
+// targetTotal = gameStartRandom(19, 120);
+
+// set values (btwn 1-12) for each gem object within main crystals object
 
 crystals.pink.value = gameStartRandom(1, 12);
 crystals.white.value = gameStartRandom(1, 12);
 crystals.aqua.value = gameStartRandom(1, 12);
 crystals.green.value = gameStartRandom(1, 12);
 
-// update HTML to reflect game status changes - note, this will be refactored to jQuery
+// update HTML to reflect game status changes ***  in plain js - refactor to jQuery
 
 document.getElementById("wins-total").innerHTML = winsTotal;
 document.getElementById("losses-total").innerHTML = lossesTotal;
 
-// below are the processes where functions are called
-// below is the code taken from last weeks exercise #12 in JQ, CrystalExample... borrow this code;
+// below is FUNCTION CALL process
+// note, code taken from last weeks exercise #12 in JQ, CrystalExample... borrow this code;
 
 var targetNumber = 53;
 
