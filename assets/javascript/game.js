@@ -49,9 +49,13 @@ var beginGame = function() {
   crystals.aqua.total = randomNums(1, 12);
   crystals.green.total = randomNums(1, 12);
 
+  // update HTML to reflect game status changes ***  in plain js - refactor to jQuery
+  // statement below will prevent alert so moved them to line 73 -
+  // document.getElementById("wins-total").innerHTML = winsTotal;
+  // document.getElementById("losses-total").innerHTML = lossesTotal;
+
   //    test with alerts;
 
- 
   alert("Target Score: " + targetTotal);
   alert(
     "pink:  " +
@@ -63,6 +67,14 @@ var beginGame = function() {
       "green: " +
       crystals.green.total
   );
+
+  // update HTML to reflect game status changes ***  in plain js - refactor to jQuery;
+
+  document.getElementById("random-num-display").innerHTML = targetTotal;
+  document.getElementById("score-count").innerHTML = currentTotal;
+  //   document.getElementById("score-count").innerHTML = currentTotal;
+  document.getElementById("wins").innerHTML = winsTotal;
+  document.getElementById("losses").innerHTML = lossesTotal;
 
   //   targetTotal = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
 
@@ -82,16 +94,16 @@ var beginGame = function() {
 beginGame();
 
 $("#pink").click(function() {
-  //   alert("testing");
+  alert("");
 });
 $("#white").click(function() {
-  //   alert("testing");
+  alert("");
 });
 $("#aqua").click(function() {
-  //   alert("testing");
+  alert("");
 });
 $("#green").click(function() {
-  //   alert("testing");
+  alert("");
 });
 
 // var gameStartRandom = function(min, max) {
@@ -103,11 +115,6 @@ $("#green").click(function() {
 // };
 
 // _________________________________________________________________________________
-
-// update HTML to reflect game status changes ***  in plain js - refactor to jQuery
-
-// document.getElementById("wins-total").innerHTML = winsTotal;
-// document.getElementById("losses-total").innerHTML = lossesTotal;
 
 // below is FUNCTION CALL process
 // note, code taken from last weeks exercise #12 in JQ, CrystalExample... borrow this code;
