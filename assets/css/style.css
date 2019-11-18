@@ -96,12 +96,13 @@ h2 {
 img {
   height: 100px;
   width: 100px;
+  cursor: pointer;
   margin-bottom: 10px;
   margin-left: 10px;
 }
 
 #crystals-display {
-  display: inline;
+  /* display: inline; */
 }
 
 #your-score-header {
@@ -118,7 +119,7 @@ img {
 
 #score-count {
   height: 100px;
-  width: 300px;
+  width: 320px;
   background-color: turquoise;
   color: white;
   font-size: xx-large;
