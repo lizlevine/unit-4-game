@@ -24,20 +24,21 @@ var crystals = {
   }
 };
 
-// possible outcomes: Scoreboard
+// Possible outcomes: Scoreboard
 
 var currentTotal = 0;
 var targetTotal = 0;
 var winsTotal = 0;
 var lossesTotal = 0;
 
-// below are FUNCTIONS – first off, code random number generators in plain js - refactor to jQuery triggered by click events
-//  starts and restarts the game;
+// FUNCTIONS – first off, code random number generators in plain js - refactor to jQuery triggered by click events
+
 var randomNums = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-// function that starts the game and resets after
+// Function that starts the game and resets after
+
 var beginGame = function() {
   // the reset function
   currentTotal = 0;
@@ -52,47 +53,22 @@ var beginGame = function() {
   crystals.aqua.total = randomNums(1, 12);
   crystals.emerald.total = randomNums(1, 12);
 
-  // update HTML to reflect game status changes ***  in plain js - refactor to jQuery
+  // Update HTML to reflect game status changes ***  in plain js - refactor to jQuery
 
-//   $("#score-count").text(currentTotal);
-  $("#score-total-display").text(currentTotal);
+  $("#score-count").text(currentTotal);
+
   $("#random-num-display").text(targetTotal);
-  $("wins").text(winsTotal);
-  $("losses").text(lossesTotal);
-
-  //   document.getElementById("random-num-display").innerHTML = targetTotal;
-  //   document.getElementById("score-total-display").innerHTML = currentTotal;
-  document.getElementById("score-count").innerHTML = currentTotal;
-  //   document.getElementById("wins").innerHTML = winsTotal;
-  //   document.getElementById("losses").innerHTML = lossesTotal;
-
-  // statement below will prevent alert so moved them to line 73 -
-  document.getElementById("wins-total").innerHTML = winsTotal;
-  document.getElementById("losses-total").innerHTML = lossesTotal;
-
-  //    test with alerts;
-
-  alert("Target Score: " + targetTotal);
-  alert(
-    "pink:  " +
-      crystals.pink.total +
-      " & diamond: " +
-      crystals.diamond.total +
-      " & aqua: " +
-      crystals.aqua.total +
-      "green: " +
-      crystals.emerald.total
-  );
 };
 
 //   targetTotal = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
 
-// now we check conditions to see if user won or lost
+// Check conditions to see if user won or lost
+
 var winLoss = function() {
   // check to see if currentTotal is larger than targetTotal
   if (currentTotal > targetTotal) {
     alert("You lost this round, try again!");
-    //   console.log("You lost, try again!!");
+    console.log("You lost, try again!!");
 
     // increment loss counter
     lossesTotal++;
@@ -104,7 +80,7 @@ var winLoss = function() {
     beginGame();
   } else if (currentTotal === targetTotal) {
     alert("Congratulations, You Won!!");
-    //   console.log("awesome, you won!!");
+    console.log("awesome, you won!!");
 
     // increment win counter
     winsTotal++;
@@ -119,23 +95,22 @@ var winLoss = function() {
 
 // click listener that adds totals of gems clicked
 
-var sumTotals = function(clickedGems) {
+var sumTotals = function(crystals) {
   // update currentTotal
-  targetTotal += clickedGems.total;
+  currentTotal = currentTotal + crystals.total;
 
-  // update HTML to reflect currentTotal staus
+  // Update HTML to reflect currentTotal staus
   $("#score-count").text(currentTotal);
 
-  // call winLoss function
-
-  winLoss();
-
   // testing
-
-  // console.log("your Score: " + currentTotal);
+  winLoss();
+  console.log("your Score: " + currentTotal);
 };
 
+// Begins game the first time;
+
 beginGame();
+// below are "event listeners" wait until event fires - then it will run whatever fct in curly brackets
 
 $("#pink").click(function() {
   sumTotals(crystals.pink);
